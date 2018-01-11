@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <h1 id="holaMundo"></h1>
+  </header>
+
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA3lUkIbVdW7z3M_3mBkQAMNgo-QBcDBhU",
+    authDomain: "hola-mundo-82113.firebaseapp.com",
+    databaseURL: "https://hola-mundo-82113.firebaseio.com",
+    projectId: "hola-mundo-82113",
+    storageBucket: "hola-mundo-82113.appspot.com",
+    messagingSenderId: "582241080518"
+  };
+  firebase.initializeApp(config);
+  var holaMundo = document.getElementById('holaMundo')
+  var dbRef =firebase.database().ref().child('text')
+  dbRef.on('value', snap => holaMundo.innerText = snap.val() );
+</script>
+</body>
+</html>
